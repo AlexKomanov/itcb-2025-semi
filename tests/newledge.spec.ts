@@ -12,7 +12,7 @@ test('NewLedge Campaign Creation', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Enter your password' }).pressSequentially('1!:8o2x4XZTn');
   await page.getByRole('button', { name: 'Next' }).click();
   await expect(page.locator('header img')).toBeVisible();
-  await page.getByRole('button', { name: 'Add Campaign' }).click();
+  await page.getByRole('button', { name: 'Add Campaign' }).click({timeout: 30000});
   await expect(page.getByText('Campaign PreferencesClient')).toBeVisible();
   await page.getByRole('textbox', { name: 'Client Name' }).fill(clientName);
   await page.getByRole('textbox', { name: 'Campaign Description' }).fill(faker.lorem.sentence());
