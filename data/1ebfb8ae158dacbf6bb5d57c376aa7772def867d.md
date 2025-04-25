@@ -9,6 +9,7 @@
 Error: locator.pressSequentially: Test timeout of 30000ms exceeded.
 Call log:
   - waiting for getByRole('textbox', { name: 'Email or phone' })
+    - waiting for" https://accounts.google.com/o/saml2/idp?idpid=C0394qg2k&SAMLRequest=fZJPT%2BMwEMXv%2Byki352kJk1bq0lVgSoqFWnFvwMXNHWHYBHbweMU2E%2B%2Fbkp34cLBlm29N7%2FRG88X76ZN9uhJO1uxUZqzBK1yO22bit3drviULepfcwLTik4u%…" navigation to finish...
 
     at /home/runner/work/itcb-2025-semi/itcb-2025-semi/tests/newledge.spec.ts:10:63
 ```
@@ -38,7 +39,7 @@ Call log:
   12 |   await page.getByRole('textbox', { name: 'Enter your password' }).pressSequentially('1!:8o2x4XZTn');
   13 |   await page.getByRole('button', { name: 'Next' }).click();
   14 |   await expect(page.locator('header img')).toBeVisible();
-  15 |   await page.getByRole('button', { name: 'Add Campaign' }).click();
+  15 |   await page.getByRole('button', { name: 'Add Campaign' }).click({timeout: 30000});
   16 |   await expect(page.getByText('Campaign PreferencesClient')).toBeVisible();
   17 |   await page.getByRole('textbox', { name: 'Client Name' }).fill(clientName);
   18 |   await page.getByRole('textbox', { name: 'Campaign Description' }).fill(faker.lorem.sentence());
